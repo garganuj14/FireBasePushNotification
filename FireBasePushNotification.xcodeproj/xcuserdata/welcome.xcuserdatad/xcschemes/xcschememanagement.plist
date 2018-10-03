@@ -4,10 +4,63 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Content Extension.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>15</integer>
+		</dict>
+		<key>Content.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>14</integer>
+		</dict>
 		<key>FireBasePushNotification.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>13</integer>
+		</dict>
+		<key>Notification Service.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>14</integer>
+		</dict>
+		<key>NotificationServiceExtention.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>13</integer>
+		</dict>
+		<key>Service.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>14</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>4229BA282158B868002B89FC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>423BA62D214A2AE900D6D78D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>423BA644214A2AF100D6D78D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>423BA64F214A2AF100D6D78D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>42B6707B215CD43A00E1D43A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
