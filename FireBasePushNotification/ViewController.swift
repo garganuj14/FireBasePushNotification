@@ -17,7 +17,7 @@ class ViewController: UIViewController{
     let userCacheQueue = OperationQueue()
     var arrNotifications: NSArray = []
     
-    let url = "http://ec2-52-221-214-77.ap-southeast-1.compute.amazonaws.com:8080/ChirpApp/api/notification/getNotifications"
+    let url = ""
     let webCnctn = WebConnectionViewController()
 
     override func viewDidLoad() {
