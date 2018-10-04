@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		420A6F7C2164D03800372431 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420A6F7B2164D03800372431 /* NotificationCell.swift */; };
 		4229BA2C2158B868002B89FC /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4229BA2B2158B868002B89FC /* NotificationService.swift */; };
 		4229BA302158B869002B89FC /* Notification Service.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4229BA292158B868002B89FC /* Notification Service.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4229BA352158C5CF002B89FC /* WebConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4229BA342158C5CF002B89FC /* WebConnectionViewController.swift */; };
@@ -76,6 +77,7 @@
 /* Begin PBXFileReference section */
 		03BAF3CF59F20BAB7071732D /* Pods-FireBasePushNotificationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireBasePushNotificationTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FireBasePushNotificationTests/Pods-FireBasePushNotificationTests.debug.xcconfig"; sourceTree = "<group>"; };
 		08A7D0DD688860D439E7E5FA /* Pods-FireBasePushNotificationUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireBasePushNotificationUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FireBasePushNotificationUITests/Pods-FireBasePushNotificationUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		420A6F7B2164D03800372431 /* NotificationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
 		4229BA292158B868002B89FC /* Notification Service.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Notification Service.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4229BA2B2158B868002B89FC /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		4229BA2D2158B869002B89FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				423BA631214A2AE900D6D78D /* AppDelegate.swift */,
 				423BA633214A2AE900D6D78D /* ViewController.swift */,
 				4229BA342158C5CF002B89FC /* WebConnectionViewController.swift */,
+				420A6F7B2164D03800372431 /* NotificationCell.swift */,
 				423BA635214A2AE900D6D78D /* Main.storyboard */,
 				423BA63B214A2AF100D6D78D /* Assets.xcassets */,
 				423BA63D214A2AF100D6D78D /* LaunchScreen.storyboard */,
@@ -444,12 +447,14 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-FireBasePushNotification/Pods-FireBasePushNotification-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -530,6 +535,7 @@
 				423BA63A214A2AE900D6D78D /* FireBasePushNotification.xcdatamodeld in Sources */,
 				423BA634214A2AE900D6D78D /* ViewController.swift in Sources */,
 				423BA632214A2AE900D6D78D /* AppDelegate.swift in Sources */,
+				420A6F7C2164D03800372431 /* NotificationCell.swift in Sources */,
 				4229BA352158C5CF002B89FC /* WebConnectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
