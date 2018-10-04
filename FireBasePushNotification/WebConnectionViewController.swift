@@ -24,7 +24,7 @@ class WebConnectionViewController: UIViewController {
             //For Authentic token
             if isAuthenticRequest{
                // let strToken = UserDefaults.standard.value(forKey: "tokenstring")as! String
-               let strToken = "OAuth2 61e0acb5ee398e2548918621634838efb573879d"
+               let strToken = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTUFU4VVVSUzlzKzRHQ0ltQUVSTUtiSVNPek1hUGJodUJyQ1ptQW9aMUcwd2tiMmN1NDF2ZXZEZThEOWh0ekZaYVVHQlVFcU5cL2dYK2lqVFwvQWFFRkxiZXQ5dzhJc05JUlh6ZHgzNXB4eno1bmpVNmdaRFk5VHpiZ3dZUzVjeW1Wb2NzMWxhakIybXR0KzZBenFCRzJCZUY0QTJ6U0JzeE5VSUlpZ3doTUxkNkl1MjJOMXdXUmFYKzkwTWJhTm5vWkhTcWREeG0zTk10eFhlaWU4NEk2Vnhrc0NKWFh3clFKam16REQ0bGc1YWRlVWJQWnlyakhaaE9seUZxbDR4NDltWTdwQmFUa1RaaFE2aHBKMUJDWVJUREpuM3lwUzVXZ3NUSjJaZFphTGVndHRJNEx4bkJsRDdxNXMwckxldXJcLzNOaVZ0c0F2dm9OckxBenFVM2FLSGhwNG5YRlZDME5aY1NiUFFscGxLK0RiMzRzUVwvbVBcLzA2XC9EN29GMEJvRXlXcnYrbW5NK3R3T0RIbTNcLzNpNkNEMk1LOUVlc2xyTkhMeWMxTXlmeEtvMWYrXC9mWGw1NlBURDY5dmtiSkhQTHQ1SHd2THcrVDZxeXJMbVdaV2pYUkV0UHRWXC8wemtLOWVUbjdmUUQxczh5d1hTSHlVdEpoY1NKVEd0VzlWS25PZHRZV0pqUFdwdXRWdk5EZjkyTjJVNlpkSjFIejU1bW1aa2x2Z3o4bkM3aU1CM0YwYUttanM0K2ZqejhNRWY0bnNCdFQwbUhGSUQweVZveldVZDFPK1BqK1ludlwvdzlLUFlaXC90dTFcLzN5bmJXRWZBd0FBIiwic3ViIjoiZ2FyZ2FudWoxNEBnbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiZXhwIjoxNTM4ODI0ODgwLCJpYXQiOjE1Mzg1NjQ4ODB9.fSuYNispl-48S5Eb3bKgGV6hZZA81d1j2cjUAam3uMU"
                 
                 print(strToken)
                 let headers = [
@@ -59,7 +59,10 @@ class WebConnectionViewController: UIViewController {
         }else
         {
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.NetworkCheck()
+            //appDelegate.NetworkCheck()
+            let vc = ViewController()
+            vc.getDataWhenOffline()
+            
         }
     }
     
