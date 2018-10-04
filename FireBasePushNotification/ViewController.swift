@@ -15,9 +15,9 @@ class ViewController: UIViewController{
     var users: [[String: Any]]! = nil
     var userCacheURL: URL?
     let userCacheQueue = OperationQueue()
-    var arrNotifications: NSArray = []
+    var arrNotifications: NSMutableArray = []
     
-    let url = ""
+    let url = "http://ec2-52-221-214-77.ap-southeast-1.compute.amazonaws.com:8080/ChirpApp/api/notification/getNotifications"
     let webCnctn = WebConnectionViewController()
 
     override func viewDidLoad() {
@@ -43,6 +43,10 @@ class ViewController: UIViewController{
         }
     }
     
+    
+    
+    
+    
     //Get All category WebApis
     func getAppNotificationApi(strURL: NSString) {
         
@@ -51,6 +55,7 @@ class ViewController: UIViewController{
                 DispatchQueue.main.async {
                     //  Helpers().showAlertMessage(viewController: self, title: "Alert!", msg:MessageStringFile().invalidDataMsg())
                     MBProgressHUD.hide(for: self.view, animated: true)
+                    self.getDataWhenOffline()
                 }
             }
             else{
@@ -59,8 +64,9 @@ class ViewController: UIViewController{
                     if let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSArray {
                         print(json)
                         DispatchQueue.main.async {
+                            self.title = "ONLINE FETCHING"
                             MBProgressHUD.hide(for: self.view, animated: true)
-                            self.arrNotifications = json.mutableCopy() as! NSArray
+                            self.arrNotifications = json.mutableCopy() as! NSMutableArray
                             self.tbleNotification.reloadData()
                             
                             // Write the data to the cache
@@ -88,18 +94,17 @@ class ViewController: UIViewController{
     
     
     func getDataWhenOffline(){
+        self.title = "OFLINE CACHING"
         if (self.userCacheURL != nil) {
             // Read the data from the cache
             self.userCacheQueue.addOperation() {
                 if let stream = InputStream(url: self.userCacheURL!) {
                     stream.open()
-                    
-                    self.arrNotifications = (try? JSONSerialization.jsonObject(with: stream, options: [])) as? [[String: Any]]? as! NSArray
+                    self.arrNotifications = NSMutableArray(array: (try? JSONSerialization.jsonObject(with: stream, options: [])) as? [[String: Any]]? as! NSArray)
                     // self.arrNotifications = json.mutableCopy() as! NSArray
                     DispatchQueue.main.async {
                         self.tbleNotification.reloadData()
                         MBProgressHUD.hide(for: self.view, animated: true)
-                        
                     }
                     stream.close()
                 }
@@ -136,7 +141,6 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellDetail", for: indexPath)as! NotificationCell
         _ = URL(string: url ?? "")
         cell.lblNotifications.text = (dict as! NSDictionary).value(forKey: "message") as? String
-        
         return cell
     }
     
@@ -152,5 +156,24 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         return UITableViewAutomaticDimension
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return .delete
+    }
+    
+    //deleting rows in tableview
+     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            arrNotifications.removeObject(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+        
+    }
+    
 }
 
+}

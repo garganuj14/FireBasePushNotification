@@ -202,7 +202,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         networkErrorView = UIView(frame: CGRect(x: window.frame.origin.x, y: window.frame.origin.y, width: window.frame.width, height: window.frame.height))
         window.addSubview(networkErrorView);
         networkErrorView.backgroundColor = UIColor.white
-        let v2 = UIImageView(frame: CGRect(x: window.frame.origin.x, y: window.frame.origin.y, width: window.frame.width, height: window.frame.height))
+        let v2 = UIImageView(frame: CGRect(x: window.frame.origin.x, y: window.frame.origin.y, width: window.frame.width, height: 40))
         v2.backgroundColor = UIColor.white
         v2.image = UIImage(named: "thumbnail.asp")
         v2.contentMode = .scaleAspectFit
