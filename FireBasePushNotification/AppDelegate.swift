@@ -8,15 +8,44 @@
 
 import UIKit
 import CoreData
+import UserNotifications
+import Firebase
+import FirebaseMessaging
+
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDelegate,MessagingDelegate {
 
     var window: UIWindow?
-
+    //let notificationDelegate = SimpleNotificationDelegate()
+    var networkErrorView = UIView()
+    
+    var fcm_token = ""
+    //Define Static data
+    let UUID = "1234_UDID"
+    let platform_Type = "ios_device"
+    let user_ID = "111111"
+    //let fcmId = "cI_Ozf7ubEQ:APA91bEFQJ6Dhceyh-oFzgb8FOyfArW3aeOtIQDkrhnwwyYVl-SKE51vJOS4I3414EY7DcilBYl7R1DA23ACzmcaiCa8oO6curkht_Z9PSC_lwq5R7zKxKN0-k5RbkvYUx8bT9-_HwLM"
+    let device_token = ""
+    let url = "https://staging.mygov.in/api/1.0/_device_info"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        // Use Firebase library to configure APIs
+        FirebaseApp.configure()
+        UNUserNotificationCenter.current().delegate = self
+        
+        Messaging.messaging().delegate = self
+
+        if #available(iOS 10, *) {
+            UNUserNotificationCenter.current().requestAuthorization(options:[.badge, .alert, .sound]){ granted, error in }
+        } else { // iOS 9 support
+            application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.badge, .sound, .alert], categories: nil))
+        }
+        application.registerForRemoteNotifications()
+        //Setting the delegate to self for Firebase to receieve the notification and  performing delegate methods
+      //  self.configureNotification()
+        
         return true
     }
 
@@ -43,7 +72,197 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
     }
+    
+    
+    
+    func configureNotification() {
 
+        if #available(iOS 10.0, *) {
+           
+            
+            //let actionReadLater = UNNotificationAction(identifier: Notification.Action.readLater, title: "Read Later", options: [])
+
+            
+          /*  let openAction = UNNotificationAction(identifier: "OpenNotification", title: "Read Later", options: [.foreground])
+            let CancelAction = UNNotificationAction(identifier: "CancelNotification", title: "Cancel", options: [.destructive])
+            let DismissAction = UNNotificationAction(identifier: "DismissNotification", title: "Dismiss", options: [.destructive])
+
+            
+            let deafultCategory = UNNotificationCategory(identifier: "CustomSamplePush", actions: [openAction,CancelAction,DismissAction], intentIdentifiers: [], options: [])
+            center.setNotificationCategories(Set([deafultCategory]))
+            
+            UNUserNotificationCenter.current().setNotificationCategories([deafultCategory])
+
+            //let categories:NSSet = NSSet(object: deafultCategory)
+            //UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings(types: [.badge, .sound, .alert], categories: categories as? Set<UIUserNotificationCategory>))*/
+            
+        }
+    }
+    
+    
+    //MARK : Firebase Messaging Delegate Methods(Metgod Swizzling..Swizzle the default did register method)
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        print("Firebase registration token: \(fcmToken)")
+        fcm_token = fcmToken
+        let dataDict:[String: String] = ["token": fcmToken]
+        NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
+        
+        // TODO: If necessary send token to application server.
+      //  SendData_API(url: self.url, fcm_ID: self.fcm_token)
+
+        // Note: This callback is fired at each app startup and whenever a new token is generated.
+    }
+    
+    //MARK: Remote Notification Method
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        print(deviceToken)
+        let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
+        print("APNs device token: \(deviceTokenString)")
+    }
+    
+    
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
+        // If you are receiving a notification message while your app is in the background,
+        // this callback will not be fired till the user taps on the notification launching the application.
+        // TODO: Handle data of notification
+        
+        // With swizzling disabled you must let Messaging know about the message, for Analytics
+        // Messaging.messaging().appDidReceiveMessage(userInfo)
+        
+        // Print message ID.
+       
+        
+        // Print full message.
+        print(userInfo)
+        print(userInfo["attachment-url"] as! String)
+    }
+
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
+                     fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        // If you are receiving a notification message while your app is in the background,
+        // this callback will not be fired till the user taps on the notification launching the application.
+        // TODO: Handle data of notification
+        
+        // With swizzling disabled you must let Messaging know about the message, for Analytics
+        // Messaging.messaging().appDidReceiveMessage(userInfo)
+        
+        // Print message ID.
+//        if let messageID = userInfo[gcm.message_id] {
+//            print("Message ID: \(messageID)")
+//        }
+        
+        // Print full message.
+        print(userInfo)
+        
+        completionHandler(UIBackgroundFetchResult.newData)
+    }
+
+    
+    @available(iOS 10.0, *)
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
+        switch response.actionIdentifier {
+        case UNNotificationDismissActionIdentifier:
+            print("Dismiss Action")
+        case UNNotificationDefaultActionIdentifier:
+            print("Open Action")
+            
+            //Navigating to coressponding view controller
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "Notifi")
+            
+           // window?.rootViewController? = vc
+            if let tabBarController = self.window!.rootViewController as? UITabBarController {
+                tabBarController.selectedIndex = 1
+            }
+        case "Delete":
+            print("Delete")
+        default:
+            print("default")
+        }
+        completionHandler()
+    }
+
+    
+    
+    //MARK:- Network Check
+    
+    func NetworkCheck(){
+        /*
+         let alert = UIAlertController(title: "Alert", message: "Please  check internet connection.", preferredStyle: UIAlertControllerStyle.alert)
+         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+         self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+         
+         */
+        networkErrorView.removeFromSuperview()
+        let window = UIApplication.shared.keyWindow!
+        networkErrorView = UIView(frame: CGRect(x: window.frame.origin.x, y: window.frame.origin.y, width: window.frame.width, height: window.frame.height))
+        window.addSubview(networkErrorView);
+        networkErrorView.backgroundColor = UIColor.white
+        let v2 = UIImageView(frame: CGRect(x: window.frame.origin.x, y: window.frame.origin.y, width: window.frame.width, height: window.frame.height))
+        v2.backgroundColor = UIColor.white
+        v2.image = UIImage(named: "thumbnail.asp")
+        v2.contentMode = .scaleAspectFit
+        networkErrorView.addSubview(v2)
+        
+        
+        let button = UIButton(frame: CGRect(x: window.frame.origin.x, y: window.frame.height-40, width: window.frame.width, height: 40))
+        button.backgroundColor = UIColor.white
+        button.setTitle("Retry", for: .normal)
+        button.setTitleColor(UIColor.blue, for: .normal)
+        
+        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        networkErrorView.addSubview(button)
+        window.addSubview(networkErrorView)
+    }
+    
+    @objc func buttonAction(sender: UIButton!) {
+        let webCnctn = WebConnectionViewController()
+        if webCnctn.isConnectedToNetwork()
+        {
+            networkErrorView.removeFromSuperview()
+            self.window?.rootViewController?.viewDidLoad()
+        }
+    }
+    
+    
+    
+    //MARK:- Send Data to server
+    func SendData_API(url: String,fcm_ID :String) {
+        
+        let postObject = ["gcm_id":fcm_ID,"user_id":user_ID,"platform_type":platform_Type,"uuid":UUID,"device_id" : self.device_token] as [String: Any]
+        print(postObject)
+        let webCnctn = WebConnectionViewController()
+        webCnctn.downloadData(fromUrl: url, isAuthenticRequest: false, postObject: postObject, requestType: "POST", compHandler:{ data, error in
+            if (error != nil) {
+            }
+            else{
+                print(data ?? "value")
+                let dataString = String.init(data: data!, encoding: String.Encoding.utf8)
+                print("Data encoded string is :\(String(describing: dataString))")
+                do {
+                    //create json object from data
+                    if let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary {
+                        
+                        print("Data is -\(json)")
+                    }
+                    else{
+                        
+                    }
+                } catch let error {
+                    
+                    print(error.localizedDescription)
+                    
+                }
+            }
+        })
+    }
+    
+    
+    
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {

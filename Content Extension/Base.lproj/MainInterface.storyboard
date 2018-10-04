@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CLn-u4-I3M">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Notification View Controller-->
+        <scene sceneID="caV-pB-awb">
+            <objects>
+                <viewController id="CLn-u4-I3M" userLabel="Notification View Controller" customClass="NotificationViewController" customModule="NotificationContent" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4R5-87-evn"/>
+                        <viewControllerLayoutGuide type="bottom" id="iro-V4-aTm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="pee-1B-lHV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jrO-Qu-BCX">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="jrO-Qu-BCX" firstAttribute="leading" secondItem="pee-1B-lHV" secondAttribute="leading" id="Dz1-QA-pB6"/>
+                            <constraint firstItem="jrO-Qu-BCX" firstAttribute="top" secondItem="4R5-87-evn" secondAttribute="bottom" id="i1c-NW-SP2"/>
+                            <constraint firstAttribute="trailing" secondItem="jrO-Qu-BCX" secondAttribute="trailing" id="jr0-PK-DTd"/>
+                            <constraint firstItem="iro-V4-aTm" firstAttribute="top" secondItem="jrO-Qu-BCX" secondAttribute="bottom" id="wpc-gZ-ucM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="GN8-f3-oUV"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="300"/>
+                    <connections>
+                        <outlet property="imageView" destination="jrO-Qu-BCX" id="rME-Wi-EYY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZnI-x3-MHn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-26" y="57"/>
+        </scene>
+    </scenes>
+</document>
