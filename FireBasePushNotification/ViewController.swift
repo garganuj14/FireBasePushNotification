@@ -28,19 +28,19 @@ class ViewController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
         if webCnctn.isConnectedToNetwork() {
             // GET DATA FROM SERVER
             MBProgressHUD.showAdded(to: self.view, animated: true)
-            getAppNotificationApi(strURL: url as NSString)
+          //  getAppNotificationApi(strURL: url as NSString)
         }
         else{
             //if no network is available then call the local storage for best user experience
             self.getDataWhenOffline()
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+       
     }
     
     
