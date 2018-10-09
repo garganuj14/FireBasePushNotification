@@ -14,11 +14,22 @@ class SliderViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var dashboardCollection: UICollectionView!
+
+    var dashboardViewModel: DashboardViewModel = DashboardViewModel()
+
+    
     let arrSlider = ["Slide 1","Slide 2","Slide 3","Slide 4","Slide 2","Slide 1"]
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         //1
+//        
+        dashboardViewModel.updateModel(view: self.view)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.reloadList), name: Helpers.DashboardUpdated , object: nil)
+
+        
         self.scrollView.frame = CGRect(x:0, y:0, width:self.view.frame.width, height:self.view.frame.height)
         let scrollViewWidth:CGFloat = self.scrollView.frame.width
         let scrollViewHeight:CGFloat = 350
@@ -66,6 +77,41 @@ class SliderViewController: UIViewController, UIScrollViewDelegate {
         self.scrollView.scrollRectToVisible(CGRect(x:slideToX, y:0, width:pageWidth, height:self.scrollView.frame.height), animated: true)
     }
 }
+
+extension SliderViewController:UICollectionViewDelegate,UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return dashboardViewModel.numberOfRowsInSection()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        var cell = CollectionViewCell()
+        cell = collectionView.dequeueReusableCell(withReuseIdentifier: Helpers.CARD_CELL_IDENTIFIER, for: indexPath) as! CollectionViewCell
+        let card = self.dashboardViewModel.cardsArray[indexPath.row]
+        cell.setDashboardData(card: card)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
+        cell.viewHover.isHidden = false
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
+        cell.viewHover.isHidden = true
+    }
+    
+    
+    // Reloads the list
+    @objc func reloadList(){
+        DispatchQueue.main.async {
+            self.dashboardCollection.reloadData()
+        }
+    }
+    
+}
+
+
 private typealias ScrollView = SliderViewController
 extension ScrollView
 {

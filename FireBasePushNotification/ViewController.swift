@@ -30,8 +30,7 @@ class ViewController: UIViewController{
         super.viewWillAppear(animated)
         if webCnctn.isConnectedToNetwork() {
             // GET DATA FROM SERVER
-            MBProgressHUD.showAdded(to: self.view, animated: true)
-          //  getAppNotificationApi(strURL: url as NSString)
+            getAppNotificationApi(strURL: url as NSString)
         }
         else{
             //if no network is available then call the local storage for best user experience
@@ -39,17 +38,12 @@ class ViewController: UIViewController{
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-       
-    }
-    
-    
-    
     
     
     //Get All category WebApis
     func getAppNotificationApi(strURL: NSString) {
-        
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+
         webCnctn.downloadData(fromUrl: strURL as String, isAuthenticRequest: true, postObject: nil, requestType: "GET", compHandler:{ data, error in
             if (error != nil) {
                 DispatchQueue.main.async {
@@ -171,9 +165,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-        
     }
-    
-}
+  }
 
 }
