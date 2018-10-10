@@ -51,6 +51,7 @@ extension PerformanceDashboardViewController:UICollectionViewDelegate,UICollecti
         var cell = CollectionViewCell()
         cell = collectionView.dequeueReusableCell(withReuseIdentifier: Helpers.CARD_CELL_IDENTIFIER, for: indexPath) as! CollectionViewCell
         let card = self.dashboardViewModel.cardsArray[indexPath.row]
+        cell.viewHover.isHidden = true
         cell.setDashboardData(card: card)
         return cell
     }
