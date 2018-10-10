@@ -51,6 +51,8 @@ extension PerformanceDashboardViewController:UICollectionViewDelegate,UICollecti
         var cell = CollectionViewCell()
         cell = collectionView.dequeueReusableCell(withReuseIdentifier: Helpers.CARD_CELL_IDENTIFIER, for: indexPath) as! CollectionViewCell
         let card = self.dashboardViewModel.cardsArray[indexPath.row]
+        //cell.DataValue.font = UIFont(name: "DS-DIGI", size: 19)
+
         cell.viewHover.isHidden = true
         cell.setDashboardData(card: card)
         return cell
