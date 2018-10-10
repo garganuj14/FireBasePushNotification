@@ -11,6 +11,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="DS-DIGIB.TTF">
+            <string>DS-Digital-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Dashboard-->
         <scene sceneID="tne-QT-ifu">
@@ -435,11 +440,11 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="27" id="rbl-JR-OHk"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="GurmukhiMN-Bold" family="Gurmukhi MN" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="DS-Digital-Bold" family="DS-Digital" pointSize="19"/>
                                                     <color key="textColor" red="0.34408642020000002" green="0.4841271808" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m0f-4m-5KE">
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m0f-4m-5KE">
                                                     <rect key="frame" x="0.0" y="0.0" width="176" height="150"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23,43555" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1OL-4p-Grf">
@@ -447,7 +452,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="27" id="WEu-BU-gva"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="GurmukhiMN-Bold" family="Gurmukhi MN" pointSize="17"/>
+                                                            <fontDescription key="fontDescription" name="DS-Digital-Bold" family="DS-Digital" pointSize="19"/>
                                                             <color key="textColor" red="1" green="0.98276419319999997" blue="0.4690211809" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
