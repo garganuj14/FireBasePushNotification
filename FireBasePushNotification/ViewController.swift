@@ -68,9 +68,7 @@ class ViewController: UIViewController{
                                 self.userCacheQueue.addOperation() {
                                     if let stream = OutputStream(url: self.userCacheURL!, append: false) {
                                         stream.open()
-                                        
                                         JSONSerialization.writeJSONObject(self.arrNotifications, to: stream, options: [.prettyPrinted], error: nil)
-                                        
                                         stream.close()
                                     }
                                 }

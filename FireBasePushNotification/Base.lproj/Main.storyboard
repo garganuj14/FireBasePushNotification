@@ -423,27 +423,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="176" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="test" translatesAutoresizingMaskIntoConstraints="NO" id="Y7Q-9A-a0k">
-                                                    <rect key="frame" x="57" y="10" width="61" height="50"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="Y7Q-9A-a0k" secondAttribute="height" multiplier="53:44" constant="0.77272727272727337" id="6dO-iI-NbH"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of documents uoloaded in digital locker" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0t-A9-oyT">
-                                                    <rect key="frame" x="10" y="68" width="157" height="49"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" red="0.41176470590000003" green="0.41176470590000003" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23,43555" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T7j-3w-HxT" customClass="EFCountingLabel" customModule="EFCountingLabel">
-                                                    <rect key="frame" x="9" y="118" width="158" height="27"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="27" id="rbl-JR-OHk"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="DS-Digital-Bold" family="DS-Digital" pointSize="19"/>
-                                                    <color key="textColor" red="0.23137254901960785" green="0.47843137254901957" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m0f-4m-5KE">
                                                     <rect key="frame" x="0.0" y="0.0" width="176" height="150"/>
                                                     <subviews>
@@ -474,11 +453,41 @@
                                                         <constraint firstItem="Sog-QC-AZZ" firstAttribute="centerX" secondItem="m0f-4m-5KE" secondAttribute="centerX" id="pRL-AM-4db"/>
                                                     </constraints>
                                                 </view>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="test" translatesAutoresizingMaskIntoConstraints="NO" id="Y7Q-9A-a0k">
+                                                    <rect key="frame" x="57" y="10" width="61" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="Y7Q-9A-a0k" secondAttribute="height" multiplier="53:44" constant="0.77272727272727337" id="6dO-iI-NbH"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of documents uoloaded in digital locker" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0t-A9-oyT">
+                                                    <rect key="frame" x="10" y="68" width="157" height="49"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="0.41176470590000003" green="0.41176470590000003" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23,43555" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T7j-3w-HxT" customClass="EFCountingLabel" customModule="EFCountingLabel">
+                                                    <rect key="frame" x="9" y="118" width="158" height="27"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="27" id="rbl-JR-OHk"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="DS-Digital-Bold" family="DS-Digital" pointSize="19"/>
+                                                    <color key="textColor" red="0.23137254901960785" green="0.47843137254901957" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uHv-aZ-9SR">
+                                                    <rect key="frame" x="142" y="10" width="25" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="25" id="9et-T7-eu7"/>
+                                                    </constraints>
+                                                    <state key="normal" backgroundImage="share_android-512"/>
+                                                </button>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="bottomMargin" secondItem="l0t-A9-oyT" secondAttribute="bottom" constant="25" id="1N2-SL-3OX"/>
+                                            <constraint firstItem="uHv-aZ-9SR" firstAttribute="top" secondItem="T7j-3w-HxT" secondAttribute="top" constant="-108" id="24o-gX-a7E"/>
+                                            <constraint firstItem="uHv-aZ-9SR" firstAttribute="trailing" secondItem="T7j-3w-HxT" secondAttribute="trailing" id="2Ol-ot-4qR"/>
                                             <constraint firstItem="l0t-A9-oyT" firstAttribute="top" secondItem="Y7Q-9A-a0k" secondAttribute="bottom" constant="8" id="4tV-HR-UPw"/>
                                             <constraint firstItem="Y7Q-9A-a0k" firstAttribute="top" secondItem="mCE-QR-MUe" secondAttribute="top" constant="10" id="Ci9-5t-Es2"/>
                                             <constraint firstItem="l0t-A9-oyT" firstAttribute="leading" secondItem="mCE-QR-MUe" secondAttribute="leadingMargin" constant="2" id="Fy1-gG-cab"/>
@@ -486,6 +495,7 @@
                                             <constraint firstAttribute="bottomMargin" secondItem="T7j-3w-HxT" secondAttribute="bottom" constant="-3" id="UQy-IR-bMR"/>
                                             <constraint firstAttribute="bottom" secondItem="m0f-4m-5KE" secondAttribute="bottom" id="VXi-Ei-pe1"/>
                                             <constraint firstItem="m0f-4m-5KE" firstAttribute="leading" secondItem="mCE-QR-MUe" secondAttribute="leading" id="WaS-iH-DQN"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="uHv-aZ-9SR" secondAttribute="bottom" constant="108" id="aVI-Ne-3jc"/>
                                             <constraint firstItem="l0t-A9-oyT" firstAttribute="centerX" secondItem="mCE-QR-MUe" secondAttribute="centerX" constant="0.5" id="eq7-MK-BeR"/>
                                             <constraint firstAttribute="bottom" secondItem="T7j-3w-HxT" secondAttribute="bottom" constant="5" id="hyV-dq-Jp4"/>
                                             <constraint firstItem="l0t-A9-oyT" firstAttribute="leading" secondItem="T7j-3w-HxT" secondAttribute="leading" constant="1" id="i1I-0K-zsS"/>
@@ -508,6 +518,7 @@
                                             <outlet property="DataValue" destination="T7j-3w-HxT" id="FQh-rV-x7k"/>
                                             <outlet property="DataValueHover" destination="1OL-4p-Grf" id="qUC-ge-7lb"/>
                                             <outlet property="icon" destination="Y7Q-9A-a0k" id="Bj5-3Y-vf1"/>
+                                            <outlet property="shareButton" destination="uHv-aZ-9SR" id="FWH-da-h7Y"/>
                                             <outlet property="smallText" destination="l0t-A9-oyT" id="xPk-uR-jW8"/>
                                             <outlet property="smallTextHover" destination="Sog-QC-AZZ" id="f4D-Le-te7"/>
                                             <outlet property="viewHover" destination="m0f-4m-5KE" id="zeL-YI-xga"/>
@@ -567,6 +578,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="share_android-512" width="512" height="512"/>
         <image name="test" width="260" height="260"/>
         <image name="thumbnail.asp" width="300" height="300"/>
     </resources>

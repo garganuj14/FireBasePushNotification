@@ -18,7 +18,8 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var smallTextHover: UILabel!
     @IBOutlet weak var DataValueHover: UILabel!
     @IBOutlet weak var viewHover: UIView!
-    
+    @IBOutlet weak var shareButton: UIButton!
+
     
     
     override var isSelected: Bool{

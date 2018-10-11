@@ -65,9 +65,14 @@ struct dashboardCard {
 
 
 extension DashboardModel {
+    
+   
+    
+    
     public static func getDataFromServer(compHandler:@escaping (DashboardModel)->Void ){
         let webCnctn = WebConnectionViewController()
         let strURL = kWebServicesURLs.dashboard_url
+       
         
         //Call webservice using the method of webconnection class using a get request
         webCnctn.downloadData(fromUrl: strURL, isAuthenticRequest: false, postObject: nil, requestType: "GET", compHandler:{ data, error in
@@ -78,30 +83,13 @@ extension DashboardModel {
                 do {
                     guard let data = data else {return}
                     do {
-//                        let decoder = JSONDecoder()
-//                        //update newsmodel from data
-//                        let dashboardModel = try decoder.decode(DashboardModel.self, from: data)
-//                        //print(dashboardModel.status ?? "failed")
-                        
+
                         if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? NSArray {
                             print(json)
                             DispatchQueue.main.async {
                                 let arrDashboard = json.mutableCopy() as! NSMutableArray
                                 let dashboardModel = DashboardModel(arCards: arrDashboard )
                                 compHandler(dashboardModel)
-
-                                // Write the data to the cache
-//                                if (self.userCacheURL != nil) {
-//                                    self.userCacheQueue.addOperation() {
-//                                        if let stream = OutputStream(url: self.userCacheURL!, append: false) {
-//                                            stream.open()
-//
-//                                            JSONSerialization.writeJSONObject(self.arrNotifications, to: stream, options: [.prettyPrinted], error: nil)
-//
-//                                            stream.close()
-//                                        }
-//                                    }
-//                                }
                             }
                         }
                         
@@ -112,6 +100,8 @@ extension DashboardModel {
             }
         })
     }
+    
+   
 }
 
 
