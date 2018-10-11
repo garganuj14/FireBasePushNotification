@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EFCountingLabel
 
 class PerformanceDashboardViewController: UIViewController {
     @IBOutlet weak var dashboardCollection: UICollectionView!
@@ -26,23 +27,13 @@ class PerformanceDashboardViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
 
-
+//MARK:- Extention for implementing delegates and datasource of collectionview
 extension PerformanceDashboardViewController:UICollectionViewDelegate,UICollectionViewDataSource{
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dashboardViewModel.numberOfRowsInSection()
     }
@@ -51,13 +42,29 @@ extension PerformanceDashboardViewController:UICollectionViewDelegate,UICollecti
         var cell = CollectionViewCell()
         cell = collectionView.dequeueReusableCell(withReuseIdentifier: Helpers.CARD_CELL_IDENTIFIER, for: indexPath) as! CollectionViewCell
         let card = self.dashboardViewModel.cardsArray[indexPath.row]
-        //cell.DataValue.font = UIFont(name: "DS-DIGI", size: 19)
-
-        cell.viewHover.isHidden = true
+       // cell.viewHover.isHidden = true
         cell.setDashboardData(card: card)
         return cell
     }
     
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        var cell = CollectionViewCell()
+//        cell = collectionView.dequeueReusableCell(withReuseIdentifier: Helpers.CARD_CELL_IDENTIFIER, for: indexPath) as! CollectionViewCell
+//        
+//        UIView.transition(with: view, duration: 0.5, options: .transitionCrossDissolve, animations: {
+//           // view.isHidden = hidden
+//            cell.viewHover.isHidden = false
+//        })
+//    }
+//    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+//        var cell = CollectionViewCell()
+//        cell = collectionView.dequeueReusableCell(withReuseIdentifier: Helpers.CARD_CELL_IDENTIFIER, for: indexPath) as! CollectionViewCell
+//        
+//        UIView.transition(with: view, duration: 0.5, options: .transitionCrossDissolve, animations: {
+//            // view.isHidden = hidden
+//            cell.viewHover.isHidden = true
+//        })
+//    }
     
     // Reloads the list
     @objc func reloadList(){
