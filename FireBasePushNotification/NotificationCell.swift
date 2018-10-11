@@ -1,10 +1,3 @@
-//
-//  NotificationCell.swift
-//  Chrip
-//
-//  Created by Karan Singla on 4/7/17.
-//  Copyright © 2017 xyz. All rights reserved.
-//
 
 import UIKit
 
