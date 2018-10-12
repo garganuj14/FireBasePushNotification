@@ -38,6 +38,7 @@
 		7D8F4E55216E25DE008E433E /* DS-DIGIB.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 4232DD04216DBF6E00D598B2 /* DS-DIGIB.TTF */; };
 		7D8F4E56216E25DE008E433E /* DS-DIGII.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 4232DD05216DBF6F00D598B2 /* DS-DIGII.TTF */; };
 		7D8F4E57216E25DE008E433E /* DS-DIGIT.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 4232DD02216DBF6C00D598B2 /* DS-DIGIT.TTF */; };
+		7DF755C921706F1B00CD8807 /* ShareDialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF755C821706F1B00CD8807 /* ShareDialogViewController.swift */; };
 		836431FDCFF4358CD4FE9919 /* Pods_FireBasePushNotificationUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95EE42F63E546256BE7BBA89 /* Pods_FireBasePushNotificationUITests.framework */; };
 		E299DC60BBF5592FEBFBB860 /* Pods_FireBasePushNotificationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88B3D485B4035BBB7F5E6898 /* Pods_FireBasePushNotificationTests.framework */; };
 		FC551705E263A0D8F4E9B660 /* Pods_FireBasePushNotification.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD7A9CE48449FDD8DAEB056C /* Pods_FireBasePushNotification.framework */; };
@@ -128,6 +129,7 @@
 		42F9FAD6216C801A00664034 /* DashboardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardModel.swift; sourceTree = "<group>"; };
 		4EA46174E2E0142453D08231 /* Pods-FireBasePushNotificationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireBasePushNotificationTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FireBasePushNotificationTests/Pods-FireBasePushNotificationTests.release.xcconfig"; sourceTree = "<group>"; };
 		5F68B9C3CE94A49C32E7EF01 /* Pods-FireBasePushNotificationUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireBasePushNotificationUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FireBasePushNotificationUITests/Pods-FireBasePushNotificationUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7DF755C821706F1B00CD8807 /* ShareDialogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareDialogViewController.swift; sourceTree = "<group>"; };
 		88B3D485B4035BBB7F5E6898 /* Pods_FireBasePushNotificationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FireBasePushNotificationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95EE42F63E546256BE7BBA89 /* Pods_FireBasePushNotificationUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FireBasePushNotificationUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C93AAAB71F9F0DE61874214 /* Pods-FireBasePushNotification.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireBasePushNotification.release.xcconfig"; path = "Pods/Target Support Files/Pods-FireBasePushNotification/Pods-FireBasePushNotification.release.xcconfig"; sourceTree = "<group>"; };
@@ -216,17 +218,13 @@
 		423BA630214A2AE900D6D78D /* FireBasePushNotification */ = {
 			isa = PBXGroup;
 			children = (
+				7DF755CC2170BEC300CD8807 /* Networking */,
+				7DF755CB2170BEAF00CD8807 /* Storyboard */,
+				7DF755CA2170BE8B00CD8807 /* DummyApp */,
 				7D3FA4D2216F1EE900558C3C /* PerformanceDashboard */,
 				426A669021520B710070D273 /* FireBasePushNotification.entitlements */,
 				423BA631214A2AE900D6D78D /* AppDelegate.swift */,
-				420A8F62216B35B000D3B263 /* SliderViewController.swift */,
-				423BA633214A2AE900D6D78D /* ViewController.swift */,
-				4229BA342158C5CF002B89FC /* WebConnectionViewController.swift */,
-				420A6F7B2164D03800372431 /* NotificationCell.swift */,
-				42DB2260216C8433009BDFF4 /* MessageStringFile.swift */,
-				423BA635214A2AE900D6D78D /* Main.storyboard */,
 				423BA63B214A2AF100D6D78D /* Assets.xcassets */,
-				423BA63D214A2AF100D6D78D /* LaunchScreen.storyboard */,
 				423BA640214A2AF100D6D78D /* Info.plist */,
 				423BA638214A2AE900D6D78D /* FireBasePushNotification.xcdatamodeld */,
 				4232DD03216DBF6D00D598B2 /* DS-DIGI.TTF */,
@@ -263,11 +261,13 @@
 		7D3FA4D2216F1EE900558C3C /* PerformanceDashboard */ = {
 			isa = PBXGroup;
 			children = (
+				42DB2260216C8433009BDFF4 /* MessageStringFile.swift */,
 				42F9FAD4216C7F5700664034 /* Helper.swift */,
 				7D3FA4D6216F2B8700558C3C /* ViewController */,
 				7D3FA4D5216F2B7000558C3C /* ViewModel */,
 				7D3FA4D4216F2B6400558C3C /* DataModel */,
 				7D3FA4D3216F1F1000558C3C /* CustomCollectionCell */,
+				7DF755C821706F1B00CD8807 /* ShareDialogViewController.swift */,
 			);
 			path = PerformanceDashboard;
 			sourceTree = "<group>";
@@ -302,6 +302,33 @@
 				42DB2266216CC532009BDFF4 /* PerformanceDashboardViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		7DF755CA2170BE8B00CD8807 /* DummyApp */ = {
+			isa = PBXGroup;
+			children = (
+				420A8F62216B35B000D3B263 /* SliderViewController.swift */,
+				423BA633214A2AE900D6D78D /* ViewController.swift */,
+				420A6F7B2164D03800372431 /* NotificationCell.swift */,
+			);
+			path = DummyApp;
+			sourceTree = "<group>";
+		};
+		7DF755CB2170BEAF00CD8807 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				423BA63D214A2AF100D6D78D /* LaunchScreen.storyboard */,
+				423BA635214A2AE900D6D78D /* Main.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		7DF755CC2170BEC300CD8807 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				4229BA342158C5CF002B89FC /* WebConnectionViewController.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		8006AA4B239FC638C3B4E2A8 /* Frameworks */ = {
@@ -530,6 +557,7 @@
 				"${BUILT_PRODUCTS_DIR}/EFCountingLabel/EFCountingLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/Presentr/Presentr.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -539,6 +567,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EFCountingLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Presentr.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -631,6 +660,7 @@
 				423BA632214A2AE900D6D78D /* AppDelegate.swift in Sources */,
 				420A8F63216B35B000D3B263 /* SliderViewController.swift in Sources */,
 				420A6F7C2164D03800372431 /* NotificationCell.swift in Sources */,
+				7DF755C921706F1B00CD8807 /* ShareDialogViewController.swift in Sources */,
 				4229BA352158C5CF002B89FC /* WebConnectionViewController.swift in Sources */,
 				42DB2265216C903D009BDFF4 /* CollectionViewCell.swift in Sources */,
 			);
