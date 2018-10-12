@@ -8,12 +8,34 @@
 
 import UIKit
 import EFCountingLabel
+import Presentr
 
 class PerformanceDashboardViewController: UIViewController {
     @IBOutlet weak var dashboardCollection: UICollectionView!
     
     private let refreshControl = UIRefreshControl()
     var dashboardViewModel: DashboardViewModel = DashboardViewModel()
+    
+    
+    //Presentr decleration
+    let presenter: Presentr = {
+        let width = ModalSize.custom(size: 276.0)
+        let height = ModalSize.custom(size: 200.0)
+        let center = ModalCenterPosition.center
+        let customType = PresentationType.custom(width: width, height: height, center: center)
+        
+        let customPresenter = Presentr(presentationType: customType)
+        customPresenter.transitionType = .coverVerticalFromTop
+        customPresenter.dismissTransitionType = .crossDissolve
+        customPresenter.roundCorners = true
+        customPresenter.backgroundColor = .clear
+        customPresenter.backgroundOpacity = 0.5
+        customPresenter.dismissOnSwipe = true
+        customPresenter.dismissOnSwipeDirection = .top
+        //customPresenter.blurBackground = true
+        //customPresenter.blurStyle = UIBlurEffectStyle.light
+        return customPresenter
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,25 +68,7 @@ class PerformanceDashboardViewController: UIViewController {
     }
     
     
-    // share image
-    @IBAction func shareImageButton(_ sender: UIButton) {
-        
-      let card = self.dashboardViewModel.cardsArray[sender.tag]
-        
-        // image to share
-        //let image = UIImage(named: "Image")
-        
-        // set up activity view controller
-        //let imageToShare = [ image! ]
-        let activityViewController = UIActivityViewController(activityItems: [card.small_text!], applicationActivities: nil)
-        activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
-        
-        // exclude some activity types from the list (optional)
-        activityViewController.excludedActivityTypes = [ UIActivityType.airDrop, UIActivityType.postToFacebook ]
-        
-        // present the view controller
-        self.present(activityViewController, animated: true, completion: nil)
-    }
+    
     
 }
 
@@ -80,10 +84,19 @@ extension PerformanceDashboardViewController:UICollectionViewDelegate,UICollecti
         var cell = CollectionViewCell()
         cell = collectionView.dequeueReusableCell(withReuseIdentifier: Helpers.CARD_CELL_IDENTIFIER, for: indexPath) as! CollectionViewCell
         let card = self.dashboardViewModel.cardsArray[indexPath.row]
-        cell.shareButton.addTarget(self, action: #selector(shareImageButton(_:)), for: .touchUpInside)
+      //  cell.shareButton.addTarget(self, action: #selector(shareImageButton(_:)), for: .touchUpInside)
        // cell.viewHover.isHidden = true
         cell.setDashboardData(card: card)
         return cell
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let card = self.dashboardViewModel.cardsArray[indexPath.row]
+        let controller = Helpers.storyBoard.instantiateViewController(withIdentifier: "ShareDialogViewController") as! ShareDialogViewController
+        controller.card = card
+        customPresentViewController(presenter, viewController: controller, animated: true, completion: nil)
     }
     
     

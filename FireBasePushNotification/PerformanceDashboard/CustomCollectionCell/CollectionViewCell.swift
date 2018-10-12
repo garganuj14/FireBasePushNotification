@@ -22,7 +22,7 @@ class CollectionViewCell: UICollectionViewCell {
 
     
     
-    override var isSelected: Bool{
+   /* override var isSelected: Bool{
         didSet{
             if self.isSelected
             {
@@ -37,7 +37,7 @@ class CollectionViewCell: UICollectionViewCell {
                 })
             }
         }
-    }
+    }*/
     
     
     
@@ -50,10 +50,11 @@ class CollectionViewCell: UICollectionViewCell {
         let url = card.icon
         self.icon.sd_setImage(with: url)
         self.DataValue.format = "%d"
-        let intValue = Int(card.data_value!)
+        let intValue = Int64(card.data_value!)
         print("Float value",intValue!)
-        self.DataValue.countFrom(CGFloat(0), to: CGFloat(intValue!), withDuration: 1.5)
-        // self.DataValue.countFromZeroTo(CGFloat(intValue!))
+        
+        //self.DataValue.countFrom(CGFloat(0), to: CGFloat(intValue!), withDuration: 1.5)
+        self.DataValue.text = card.pre_data_unit! + (" \(card.data_value!)")
         self.DataValueHover.text = card.data_value
     }
 }

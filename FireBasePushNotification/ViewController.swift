@@ -34,7 +34,7 @@ class ViewController: UIViewController{
         }
         else{
             //if no network is available then call the local storage for best user experience
-            self.getDataWhenOffline()
+            //self.getDataWhenOffline()
         }
     }
     
@@ -77,7 +77,7 @@ class ViewController: UIViewController{
                     }
                 } catch let error {
                     print(error.localizedDescription)
-                    self.getDataWhenOffline()
+                    //self.getDataWhenOffline()
                 }
             }
         })
