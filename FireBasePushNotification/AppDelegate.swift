@@ -75,6 +75,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     
     
     
+//    func application(application: UIApplication,
+//                     performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler: Bool -> Void) {
+//        let didHandle: Bool = /* handle the quick action using shortcutItem */
+//            completionHandler(didHandle)
+//    }
+    
+//    func application(application: UIApplication,didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+//        var performAdditionalHandling = true
+//        if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsShortcutItemKey]
+//            as? UIApplicationShortcutItem {
+//            /* handle the quick action using shortcutItem */
+//            performAdditionalHandling = false
+//        }
+//        return performAdditionalHandling
+//    }
+//
+    
     func configureNotification() {
         
         if #available(iOS 10.0, *) {
@@ -316,17 +333,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         MBProgressHUD.showAdded(to: onView, animated: true)
     }
     func change(text : String) -> () {
-       // AcustomActivityLoader.shared().changeText(text)
+        // AcustomActivityLoader.shared().changeText(text)
     }
     func hideLoader(onView : UIView) -> () {
-      MBProgressHUD.hide(for: onView, animated: true)
+        MBProgressHUD.hide(for: onView, animated: true)
     }
 }
-    
-    // Shared Appdelegate
-    var shareDeleagte: AppDelegate
-    {
-        return UIApplication.shared.delegate as! AppDelegate
-    }
-    
+
+// Shared Appdelegate
+var shareDeleagte: AppDelegate
+{
+    return UIApplication.shared.delegate as! AppDelegate
+}
+
 
