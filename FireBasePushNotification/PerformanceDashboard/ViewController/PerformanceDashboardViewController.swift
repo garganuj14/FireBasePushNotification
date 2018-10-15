@@ -41,6 +41,18 @@ class PerformanceDashboardViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        //collectionview setup
+        
+        // Do any additional setup after loading the view, typically from a nib.
+        let screenWidth = UIScreen.main.bounds.size.width
+        _ = UIScreen.main.bounds.size.height
+        
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
+        layout.itemSize = CGSize(width: screenWidth/2.2, height: screenWidth/2.2)
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        dashboardCollection!.collectionViewLayout = layout
         
         dashboardViewModel.updateModel(view: self.view)
         NotificationCenter.default.addObserver(self, selector: #selector(self.reloadList), name: Helpers.DashboardUpdated , object: nil)

@@ -289,7 +289,7 @@
                                         <color key="textColor" red="0.41176470590000003" green="0.41176470590000003" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23,43555" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5A5-AH-XMO" customClass="EFCountingLabel" customModule="EFCountingLabel">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23,43555" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5A5-AH-XMO">
                                         <rect key="frame" x="28" y="91" width="219" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="219" id="c8T-Ah-D1V"/>
@@ -542,12 +542,12 @@
                                                     <color key="textColor" red="0.41176470590000003" green="0.41176470590000003" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23,43555" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T7j-3w-HxT" customClass="EFCountingLabel" customModule="EFCountingLabel">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23,43555" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T7j-3w-HxT">
                                                     <rect key="frame" x="9" y="118" width="158" height="27"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="27" id="rbl-JR-OHk"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="DS-Digital-Bold" family="DS-Digital" pointSize="19"/>
+                                                    <fontDescription key="fontDescription" name="DS-Digital-Bold" family="DS-Digital" pointSize="17"/>
                                                     <color key="textColor" red="0.23137254901960785" green="0.47843137254901957" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -566,7 +566,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="27" id="WEu-BU-gva"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="DS-Digital-Bold" family="DS-Digital" pointSize="19"/>
+                                                            <fontDescription key="fontDescription" name="DS-Digital-Bold" family="DS-Digital" pointSize="17"/>
                                                             <color key="textColor" red="1" green="0.98276419319999997" blue="0.4690211809" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>

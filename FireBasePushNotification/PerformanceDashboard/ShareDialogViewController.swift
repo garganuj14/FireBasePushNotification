@@ -15,7 +15,7 @@ class ShareDialogViewController: UIViewController {
     @IBOutlet weak var SchemeName: UILabel!
     @IBOutlet weak var smallText: UILabel!
     @IBOutlet weak var icon: UIImageView!
-    @IBOutlet weak var DataValue: EFCountingLabel!
+    @IBOutlet weak var DataValue: UILabel!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var lblDate: UIButton!
 
@@ -35,10 +35,14 @@ class ShareDialogViewController: UIViewController {
         
         let url = card.icon!
         self.icon.sd_setImage(with: url)
-        self.DataValue.format = "%d"
-        let intValue = Int((card.data_value!))
+        //self.DataValue.format = "%d"
+        let intValue = Int64((card.data_value!))
+        let dataValue = intValue?.formattedWithSeparator
+
         print("Float value",intValue!)
-        self.DataValue.text = card.pre_data_unit! + (" \(card.data_value!)")
+        self.DataValue.text = card.pre_data_unit! + (" \(dataValue!)")
+
+       // self.DataValue.text = card.pre_data_unit! + (" \(card.data_value!)")
 
     }
     

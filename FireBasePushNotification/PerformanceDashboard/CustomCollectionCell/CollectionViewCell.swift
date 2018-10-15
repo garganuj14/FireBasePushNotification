@@ -14,7 +14,7 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var SchemeName: UILabel!
     @IBOutlet weak var smallText: UILabel!
     @IBOutlet weak var icon: UIImageView!
-    @IBOutlet weak var DataValue: EFCountingLabel!
+    @IBOutlet weak var DataValue: UILabel!
     @IBOutlet weak var smallTextHover: UILabel!
     @IBOutlet weak var DataValueHover: UILabel!
     @IBOutlet weak var viewHover: UIView!
@@ -49,12 +49,14 @@ class CollectionViewCell: UICollectionViewCell {
         
         let url = card.icon
         self.icon.sd_setImage(with: url)
-        self.DataValue.format = "%d"
+       // self.DataValue.format = "%d"
         let intValue = Int64(card.data_value!)
         print("Float value",intValue!)
-        
+        let dataValue = intValue?.formattedWithSeparator
         //self.DataValue.countFrom(CGFloat(0), to: CGFloat(intValue!), withDuration: 1.5)
-        self.DataValue.text = card.pre_data_unit! + (" \(card.data_value!)")
+        self.DataValue.text = card.pre_data_unit! + (" \(dataValue!)")
+        //self.DataValue.text = card.pre_data_unit! + (" \(card.data_value!)")
+
         self.DataValueHover.text = card.data_value
     }
 }
