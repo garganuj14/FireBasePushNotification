@@ -34,7 +34,7 @@ class ViewController: UIViewController{
         }
         else{
             //if no network is available then call the local storage for best user experience
-            self.getDataWhenOffline()
+            //self.getDataWhenOffline()
         }
     }
     
@@ -68,9 +68,7 @@ class ViewController: UIViewController{
                                 self.userCacheQueue.addOperation() {
                                     if let stream = OutputStream(url: self.userCacheURL!, append: false) {
                                         stream.open()
-                                        
                                         JSONSerialization.writeJSONObject(self.arrNotifications, to: stream, options: [.prettyPrinted], error: nil)
-                                        
                                         stream.close()
                                     }
                                 }
@@ -79,7 +77,7 @@ class ViewController: UIViewController{
                     }
                 } catch let error {
                     print(error.localizedDescription)
-                    self.getDataWhenOffline()
+                    //self.getDataWhenOffline()
                 }
             }
         })

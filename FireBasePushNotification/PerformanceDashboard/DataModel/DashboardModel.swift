@@ -65,7 +65,7 @@ struct dashboardCard {
 
 
 extension DashboardModel {
-    public static func getDataFromServer(compHandler:@escaping (DashboardModel)->Void ){
+    public static func getDataFromServer(compHandler:@escaping (DashboardModel?,Bool)->Void ){
         let webCnctn = WebConnectionViewController()
         let strURL = kWebServicesURLs.dashboard_url
         
@@ -78,35 +78,25 @@ extension DashboardModel {
                 do {
                     guard let data = data else {return}
                     do {
-//                        let decoder = JSONDecoder()
-//                        //update newsmodel from data
-//                        let dashboardModel = try decoder.decode(DashboardModel.self, from: data)
-//                        //print(dashboardModel.status ?? "failed")
-                        
+
                         if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? NSArray {
                             print(json)
                             DispatchQueue.main.async {
                                 let arrDashboard = json.mutableCopy() as! NSMutableArray
                                 let dashboardModel = DashboardModel(arCards: arrDashboard )
-                                compHandler(dashboardModel)
-
-                                // Write the data to the cache
-//                                if (self.userCacheURL != nil) {
-//                                    self.userCacheQueue.addOperation() {
-//                                        if let stream = OutputStream(url: self.userCacheURL!, append: false) {
-//                                            stream.open()
-//
-//                                            JSONSerialization.writeJSONObject(self.arrNotifications, to: stream, options: [.prettyPrinted], error: nil)
-//
-//                                            stream.close()
-//                                        }
-//                                    }
-//                                }
+                                compHandler(dashboardModel,true)
                             }
+                        }
+                        else{
+                            //Failure case
+                            compHandler(nil,false)
                         }
                         
                     } catch let err {
+                        //Failure case
                         print(err.localizedDescription)
+                        compHandler(nil,false)
+
                     }
                 }
             }
