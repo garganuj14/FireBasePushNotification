@@ -65,14 +65,9 @@ struct dashboardCard {
 
 
 extension DashboardModel {
-    
-   
-    
-    
     public static func getDataFromServer(compHandler:@escaping (DashboardModel)->Void ){
         let webCnctn = WebConnectionViewController()
         let strURL = kWebServicesURLs.dashboard_url
-       
         
         //Call webservice using the method of webconnection class using a get request
         webCnctn.downloadData(fromUrl: strURL, isAuthenticRequest: false, postObject: nil, requestType: "GET", compHandler:{ data, error in
@@ -100,8 +95,6 @@ extension DashboardModel {
             }
         })
     }
-    
-   
 }
 
 
