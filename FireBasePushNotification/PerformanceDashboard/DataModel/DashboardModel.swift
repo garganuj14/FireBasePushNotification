@@ -65,7 +65,7 @@ struct dashboardCard {
 
 
 extension DashboardModel {
-    public static func getDataFromServer(compHandler:@escaping (DashboardModel)->Void ){
+    public static func getDataFromServer(compHandler:@escaping (DashboardModel?,Bool)->Void ){
         let webCnctn = WebConnectionViewController()
         let strURL = kWebServicesURLs.dashboard_url
         
@@ -84,12 +84,19 @@ extension DashboardModel {
                             DispatchQueue.main.async {
                                 let arrDashboard = json.mutableCopy() as! NSMutableArray
                                 let dashboardModel = DashboardModel(arCards: arrDashboard )
-                                compHandler(dashboardModel)
+                                compHandler(dashboardModel,true)
                             }
+                        }
+                        else{
+                            //Failure case
+                            compHandler(nil,false)
                         }
                         
                     } catch let err {
+                        //Failure case
                         print(err.localizedDescription)
+                        compHandler(nil,false)
+
                     }
                 }
             }

@@ -28,20 +28,26 @@ class DashboardViewModel: NSObject {
         if webCnctn.isConnectedToNetwork() {
             // GET DATA FROM SERVER
             //Call the web service to update the model
-            DashboardModel.getDataFromServer { (dashboardModel) in
-              
-                //Process on live data
-                self.cardsArr = dashboardModel.arCards as! [[String : Any]]
-                self.setData(onView: view)
-                // Write the data to the cache
-                if (self.cardsCacheURL != nil) {
-                    self.cardsCacheQueue.addOperation() {
-                        if let stream = OutputStream(url: self.cardsCacheURL!, append: false) {
-                            stream.open()
-                            JSONSerialization.writeJSONObject(self.cardsArr, to: stream, options: [.prettyPrinted], error: nil)
-                            stream.close()
+            DashboardModel.getDataFromServer { (dashboardModel,success) in
+                if success{
+                    //Process on live data
+                    self.cardsArr = dashboardModel?.arCards as! [[String : Any]]
+                    self.setData(onView: view)
+                    // Write the data to the cache
+                    if (self.cardsCacheURL != nil) {
+                        self.cardsCacheQueue.addOperation() {
+                            if let stream = OutputStream(url: self.cardsCacheURL!, append: false) {
+                                stream.open()
+                                JSONSerialization.writeJSONObject(self.cardsArr, to: stream, options: [.prettyPrinted], error: nil)
+                                stream.close()
+                            }
                         }
                     }
+                }
+                else{
+                    //failure case
+                    self.getDataWhenOffline(onView: view)
+
                 }
             }
         }
@@ -69,7 +75,6 @@ class DashboardViewModel: NSObject {
             cardDict.small_text = (cardsArr[i] as NSDictionary).value(forKey: "small_text") as? String
             cardDict.date = (cardsArr[i] as NSDictionary).value(forKey: "date") as? String
             cardDict.web_link = (cardsArr[i] as NSDictionary).value(forKey: "web_link") as? String
-            
             self.cardsArray.append(cardDict)
         }
         
@@ -78,7 +83,7 @@ class DashboardViewModel: NSObject {
         
         // Stop the loader in main thread
         DispatchQueue.main.async {
-            //
+            //hide the loader
             shareDeleagte.hideLoader(onView: onView)
         }
     }
@@ -95,12 +100,25 @@ class DashboardViewModel: NSObject {
                     self.setData(onView: onView)
                     stream.close()
                 }
+                else{
+                    //handle/show here Alert message here
+                    DispatchQueue.main.async {
+                        //hide the loader
+                        shareDeleagte.hideLoader(onView: onView)
+                    }
+                }
                 
                 // Update the UI
                 OperationQueue.main.addOperation() {
                     self.setData(onView: onView)
-
                 }
+            }
+        }
+        else{
+            //handle for alert message here
+            DispatchQueue.main.async {
+                //hide the loader
+                shareDeleagte.hideLoader(onView: onView)
             }
         }
     }

@@ -79,9 +79,6 @@ class PerformanceDashboardViewController: UIViewController {
         dashboardViewModel.updateModel(view: self.view)
     }
     
-    
-    
-    
 }
 
 
