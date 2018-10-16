@@ -17,85 +17,6 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Dashboard-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FireBasePushNotification" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MQ6-rQ-KdD">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </imageView>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tRi-KM-hyB">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="XC2-zx-j3g">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cHC-3s-cTt">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
-                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="XPg-RF-OUv">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Graphs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iEg-Zk-KGx">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="193"/>
-                                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="50"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="test" translatesAutoresizingMaskIntoConstraints="NO" id="6Jb-nS-7YW">
-                                                        <rect key="frame" x="0.0" y="195" width="375" height="452"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </imageView>
-                                                </subviews>
-                                                <color key="backgroundColor" red="0.65730843979999998" green="0.51440473060000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstItem="iEg-Zk-KGx" firstAttribute="trailing" secondItem="6Jb-nS-7YW" secondAttribute="trailing" id="0r5-5N-OGQ"/>
-                                                    <constraint firstAttribute="trailing" secondItem="6Jb-nS-7YW" secondAttribute="trailing" id="2Ph-0p-nob"/>
-                                                    <constraint firstItem="iEg-Zk-KGx" firstAttribute="top" secondItem="XPg-RF-OUv" secondAttribute="top" id="46N-iZ-S6p"/>
-                                                    <constraint firstItem="6Jb-nS-7YW" firstAttribute="top" secondItem="iEg-Zk-KGx" secondAttribute="bottom" constant="2" id="843-7t-Yze"/>
-                                                    <constraint firstItem="6Jb-nS-7YW" firstAttribute="top" secondItem="XPg-RF-OUv" secondAttribute="top" constant="195" id="PCn-Cc-R4j"/>
-                                                    <constraint firstItem="6Jb-nS-7YW" firstAttribute="leading" secondItem="XPg-RF-OUv" secondAttribute="leading" id="WmG-N9-ibf"/>
-                                                    <constraint firstAttribute="bottom" secondItem="6Jb-nS-7YW" secondAttribute="bottom" id="cUe-ss-XQr"/>
-                                                    <constraint firstItem="iEg-Zk-KGx" firstAttribute="leading" secondItem="6Jb-nS-7YW" secondAttribute="leading" id="cjh-pO-jkZ"/>
-                                                </constraints>
-                                            </view>
-                                            <blurEffect style="light"/>
-                                        </visualEffectView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="cHC-3s-cTt" firstAttribute="leading" secondItem="XC2-zx-j3g" secondAttribute="leading" id="5OA-ux-PRt"/>
-                                        <constraint firstAttribute="bottom" secondItem="cHC-3s-cTt" secondAttribute="bottom" id="9vb-Oa-CQP"/>
-                                        <constraint firstItem="cHC-3s-cTt" firstAttribute="top" secondItem="XC2-zx-j3g" secondAttribute="top" id="NTx-rn-QKY"/>
-                                        <constraint firstAttribute="trailing" secondItem="cHC-3s-cTt" secondAttribute="trailing" id="tiP-tE-CYK"/>
-                                    </constraints>
-                                </view>
-                                <blurEffect style="light"/>
-                            </visualEffectView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.65730843979999998" green="0.51440473060000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="MQ6-rQ-KdD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="1rZ-Wd-QoY"/>
-                            <constraint firstAttribute="trailing" secondItem="MQ6-rQ-KdD" secondAttribute="trailing" id="56e-EH-siv"/>
-                            <constraint firstItem="MQ6-rQ-KdD" firstAttribute="trailing" secondItem="tRi-KM-hyB" secondAttribute="trailing" id="6lN-BX-QGI"/>
-                            <constraint firstItem="tRi-KM-hyB" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="7wI-Tf-Jvy"/>
-                            <constraint firstItem="tRi-KM-hyB" firstAttribute="top" secondItem="MQ6-rQ-KdD" secondAttribute="top" id="C05-AO-6PP"/>
-                            <constraint firstItem="MQ6-rQ-KdD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="cnR-ct-jKi"/>
-                            <constraint firstItem="MQ6-rQ-KdD" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="j0P-ca-jER"/>
-                            <constraint firstItem="tRi-KM-hyB" firstAttribute="leading" secondItem="MQ6-rQ-KdD" secondAttribute="leading" id="v4C-OP-TZn"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Dashboard" id="Xg6-oL-nt0"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1895" y="1603"/>
-        </scene>
         <!--Ofline Caching-->
         <scene sceneID="VcH-4t-hbP">
             <objects>
@@ -228,7 +149,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="hiR-Ja-guN">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.4359021782875061" green="0.5545002818107605" blue="0.99546605348587036" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.23137254900000001" green="0.47843137250000001" blue="0.75686274509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                         </textAttributes>
@@ -251,7 +172,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pKb-bH-NaB">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="1" green="0.4756966393" blue="0.42184189319999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.23137254900000001" green="0.47843137250000001" blue="0.75686274509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -654,7 +575,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5HY-Ou-Jfy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="311" y="1597"/>
+            <point key="canvasLocation" x="342" y="1596"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="k6W-21-uG3">
@@ -666,7 +587,7 @@
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.4359021783" green="0.55450028179999999" blue="0.99546605349999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" red="0.4359021783" green="0.55450028179999999" blue="0.99546605349999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.23137254900000001" green="0.47843137250000001" blue="0.75686274509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
