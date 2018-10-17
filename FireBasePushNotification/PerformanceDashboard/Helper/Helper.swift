@@ -33,6 +33,16 @@ class Helpers: NSObject {
         }))
     }
     
+    //Function for adding attributes to string with substring
+    func addAttributedString(normalString : String , subString : String) -> NSAttributedString {
+        let strNumber: NSString = normalString as NSString
+        let range = (strNumber).range(of: subString)
+        let attribute = NSMutableAttributedString.init(string: strNumber as String)
+        attribute.addAttribute(.foregroundColor, value: UIColor.darkGray , range: range)
+        attribute.addAttribute(.font , value: UIFont(name: "DS-Digital-Bold", size: 15)! , range: range)
+        return attribute
+    }
+    
 }
 
 extension Formatter {
@@ -49,4 +59,7 @@ extension Int64{
     var formattedWithSeparator: String {
         return Formatter.withSeparator.string(for: self) ?? ""
     }
+    
+    
+    
 }

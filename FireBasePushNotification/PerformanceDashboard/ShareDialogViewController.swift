@@ -40,7 +40,14 @@ class ShareDialogViewController: UIViewController {
         let dataValue = intValue?.formattedWithSeparator
 
         print("Float value",intValue!)
-        self.DataValue.text = card.pre_data_unit! + (" \(dataValue!)")
+        if card.pre_data_unit == "Rs. " || card.pre_data_unit == "Rs "{
+            let txt = dataValue! + (" \(card.pre_data_unit!)")
+            self.DataValue.attributedText = Helpers().addAttributedString(normalString: txt, subString: card.pre_data_unit!)
+        }
+        else{
+            let txt = card.pre_data_unit! + (" \(dataValue!)")
+            self.DataValue.attributedText = Helpers().addAttributedString(normalString: txt, subString: card.pre_data_unit!)
+        }
 
        // self.DataValue.text = card.pre_data_unit! + (" \(card.data_value!)")
 

@@ -457,13 +457,13 @@
                                                         <constraint firstAttribute="width" secondItem="Y7Q-9A-a0k" secondAttribute="height" multiplier="53:44" constant="0.77272727272727337" id="6dO-iI-NbH"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of documents uoloaded in digital locker" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0t-A9-oyT">
-                                                    <rect key="frame" x="10" y="68" width="157" height="49"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of documents uoloaded in digital locker" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0t-A9-oyT">
+                                                    <rect key="frame" x="10" y="61" width="157" height="56"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.41176470590000003" green="0.41176470590000003" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23,43555" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T7j-3w-HxT">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23,43555" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T7j-3w-HxT">
                                                     <rect key="frame" x="9" y="118" width="158" height="27"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="27" id="rbl-JR-OHk"/>
@@ -516,7 +516,7 @@
                                             <constraint firstAttribute="bottomMargin" secondItem="l0t-A9-oyT" secondAttribute="bottom" constant="25" id="1N2-SL-3OX"/>
                                             <constraint firstItem="uHv-aZ-9SR" firstAttribute="top" secondItem="T7j-3w-HxT" secondAttribute="top" constant="-108" id="24o-gX-a7E"/>
                                             <constraint firstItem="uHv-aZ-9SR" firstAttribute="trailing" secondItem="T7j-3w-HxT" secondAttribute="trailing" id="2Ol-ot-4qR"/>
-                                            <constraint firstItem="l0t-A9-oyT" firstAttribute="top" secondItem="Y7Q-9A-a0k" secondAttribute="bottom" constant="8" id="4tV-HR-UPw"/>
+                                            <constraint firstItem="l0t-A9-oyT" firstAttribute="top" secondItem="Y7Q-9A-a0k" secondAttribute="bottom" constant="1" id="4tV-HR-UPw"/>
                                             <constraint firstItem="Y7Q-9A-a0k" firstAttribute="top" secondItem="mCE-QR-MUe" secondAttribute="top" constant="10" id="Ci9-5t-Es2"/>
                                             <constraint firstItem="l0t-A9-oyT" firstAttribute="leading" secondItem="mCE-QR-MUe" secondAttribute="leadingMargin" constant="2" id="Fy1-gG-cab"/>
                                             <constraint firstItem="Y7Q-9A-a0k" firstAttribute="leading" secondItem="mCE-QR-MUe" secondAttribute="leadingMargin" constant="49" id="RHe-C2-fWm"/>
@@ -575,7 +575,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5HY-Ou-Jfy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="342" y="1596"/>
+            <point key="canvasLocation" x="341.60000000000002" y="1595.352323838081"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="k6W-21-uG3">

@@ -35,7 +35,7 @@ class DashboardViewModel: NSObject {
                     self.setData(onView: view)
                     // Write the data to the cache
                     if (self.cardsCacheURL != nil) {
-                        self.cardsCacheQueue.addOperation() {
+                          self.cardsCacheQueue.addOperation() {
                             if let stream = OutputStream(url: self.cardsCacheURL!, append: false) {
                                 stream.open()
                                 JSONSerialization.writeJSONObject(self.cardsArr, to: stream, options: [.prettyPrinted], error: nil)
@@ -64,19 +64,23 @@ class DashboardViewModel: NSObject {
     
     func setData(onView: UIView){
         
-        for i in 0...self.cardsArr.count-1{
+       // let shuffuledArray = shuffle(cardArray: cardsArr as! NSArray)
+        let shuffuledArray =  cardsArr! as NSArray
+
+        for i in 0...shuffuledArray.count-1{
             var cardDict = dashboardCard()
-            cardDict.scheme = (cardsArr[i] as NSDictionary).value(forKey: "scheme") as? String
-            let  urlString = (cardsArr[i] as NSDictionary).value(forKey: "icon") as! String
+            cardDict.scheme = (shuffuledArray[i] as! NSDictionary).value(forKey: "scheme") as? String
+            let  urlString = (shuffuledArray[i] as! NSDictionary).value(forKey: "icon") as! String
             let url = URL(string: urlString)
             cardDict.icon = url
-            cardDict.data_value = (cardsArr[i] as NSDictionary).value(forKey: "data_value") as? String
-            cardDict.pre_data_unit = (cardsArr[i] as NSDictionary).value(forKey: "pre_data_unit") as? String
-            cardDict.small_text = (cardsArr[i] as NSDictionary).value(forKey: "small_text") as? String
-            cardDict.date = (cardsArr[i] as NSDictionary).value(forKey: "date") as? String
-            cardDict.web_link = (cardsArr[i] as NSDictionary).value(forKey: "web_link") as? String
+            cardDict.data_value = (shuffuledArray[i] as! NSDictionary).value(forKey: "data_value") as? String
+            cardDict.pre_data_unit = (shuffuledArray[i] as! NSDictionary).value(forKey: "pre_data_unit") as? String
+            cardDict.small_text = (shuffuledArray[i] as! NSDictionary).value(forKey: "small_text") as? String
+            cardDict.date = (shuffuledArray[i] as! NSDictionary).value(forKey: "date") as? String
+            cardDict.web_link = (shuffuledArray[i] as! NSDictionary).value(forKey: "web_link") as? String
             self.cardsArray.append(cardDict)
         }
+        
         
         //post the notification to update the view
         NotificationCenter.default.post(name: Helpers.DashboardUpdated, object: nil)
@@ -122,4 +126,26 @@ class DashboardViewModel: NSObject {
             }
         }
     }
+    
+    
+    
+    func shuffle(cardArray :NSArray) -> NSArray {
+        print(cardArray.count)
+
+        let shuffledArray = NSMutableArray()
+        for _ in 0...cardArray.count-1{
+            let random  = Int(arc4random()) % cardArray.count
+            if  shuffledArray.contains(cardArray[random]){
+                //do nothing
+            }
+            else{
+                shuffledArray.add(cardArray[random])
+            }
+        }
+        print(shuffledArray)
+        print(shuffledArray.count)
+        return shuffledArray as NSArray
+    }
 }
+
+

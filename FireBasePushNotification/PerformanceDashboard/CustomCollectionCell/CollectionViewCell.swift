@@ -19,25 +19,25 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var DataValueHover: UILabel!
     @IBOutlet weak var viewHover: UIView!
     @IBOutlet weak var shareButton: UIButton!
-
     
     
-   /* override var isSelected: Bool{
-        didSet{
-            if self.isSelected
-            {
-              UIView.transition(with: viewHover, duration: 0.5, options: .transitionFlipFromTop, animations: {
-                  self.viewHover.isHidden = false
-              })
-            }
-            else
-            {
-                UIView.transition(with: viewHover, duration: 0.5, options: .transitionFlipFromTop, animations: {
-                    self.viewHover.isHidden = true
-                })
-            }
-        }
-    }*/
+    
+    /* override var isSelected: Bool{
+     didSet{
+     if self.isSelected
+     {
+     UIView.transition(with: viewHover, duration: 0.5, options: .transitionFlipFromTop, animations: {
+     self.viewHover.isHidden = false
+     })
+     }
+     else
+     {
+     UIView.transition(with: viewHover, duration: 0.5, options: .transitionFlipFromTop, animations: {
+     self.viewHover.isHidden = true
+     })
+     }
+     }
+     }*/
     
     
     
@@ -49,14 +49,25 @@ class CollectionViewCell: UICollectionViewCell {
         
         let url = card.icon
         self.icon.sd_setImage(with: url)
-       // self.DataValue.format = "%d"
+        // self.DataValue.format = "%d"
+        
         let intValue = Int64(card.data_value!)
         print("Float value",intValue!)
+        
         let dataValue = intValue?.formattedWithSeparator
         //self.DataValue.countFrom(CGFloat(0), to: CGFloat(intValue!), withDuration: 1.5)
-        self.DataValue.text = card.pre_data_unit! + (" \(dataValue!)")
+        if card.pre_data_unit == "Rs. " || card.pre_data_unit == "Rs "{
+           let txt = dataValue! + (" \(card.pre_data_unit!)")
+           self.DataValue.attributedText = Helpers().addAttributedString(normalString: txt, subString: card.pre_data_unit!)
+        }
+        else{
+            let txt = card.pre_data_unit! + (" \(dataValue!)")
+            self.DataValue.attributedText = Helpers().addAttributedString(normalString: txt, subString: card.pre_data_unit!)
+        }
         //self.DataValue.text = card.pre_data_unit! + (" \(card.data_value!)")
-
+        
         self.DataValueHover.text = card.data_value
     }
+    
+    
 }
