@@ -227,10 +227,6 @@
 				423BA63B214A2AF100D6D78D /* Assets.xcassets */,
 				423BA640214A2AF100D6D78D /* Info.plist */,
 				423BA638214A2AE900D6D78D /* FireBasePushNotification.xcdatamodeld */,
-				4232DD03216DBF6D00D598B2 /* DS-DIGI.TTF */,
-				4232DD04216DBF6E00D598B2 /* DS-DIGIB.TTF */,
-				4232DD05216DBF6F00D598B2 /* DS-DIGII.TTF */,
-				4232DD02216DBF6C00D598B2 /* DS-DIGIT.TTF */,
 			);
 			path = FireBasePushNotification;
 			sourceTree = "<group>";
@@ -261,8 +257,8 @@
 		7D3FA4D2216F1EE900558C3C /* PerformanceDashboard */ = {
 			isa = PBXGroup;
 			children = (
-				42DB2260216C8433009BDFF4 /* MessageStringFile.swift */,
-				42F9FAD4216C7F5700664034 /* Helper.swift */,
+				7DD6EF722175A9830083C9D3 /* Helper */,
+				7DD6EF712175A90E0083C9D3 /* Fonts */,
 				7D3FA4D6216F2B8700558C3C /* ViewController */,
 				7D3FA4D5216F2B7000558C3C /* ViewModel */,
 				7D3FA4D4216F2B6400558C3C /* DataModel */,
@@ -302,6 +298,26 @@
 				42DB2266216CC532009BDFF4 /* PerformanceDashboardViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		7DD6EF712175A90E0083C9D3 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4232DD03216DBF6D00D598B2 /* DS-DIGI.TTF */,
+				4232DD04216DBF6E00D598B2 /* DS-DIGIB.TTF */,
+				4232DD05216DBF6F00D598B2 /* DS-DIGII.TTF */,
+				4232DD02216DBF6C00D598B2 /* DS-DIGIT.TTF */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		7DD6EF722175A9830083C9D3 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				42DB2260216C8433009BDFF4 /* MessageStringFile.swift */,
+				42F9FAD4216C7F5700664034 /* Helper.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		7DF755CA2170BE8B00CD8807 /* DummyApp */ = {
