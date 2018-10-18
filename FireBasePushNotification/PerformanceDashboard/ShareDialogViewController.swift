@@ -8,7 +8,7 @@
 
 import UIKit
 import EFCountingLabel
-
+import CoreGraphics
 
 class ShareDialogViewController: UIViewController {
 
@@ -17,7 +17,7 @@ class ShareDialogViewController: UIViewController {
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var DataValue: UILabel!
     @IBOutlet weak var shareButton: UIButton!
-    @IBOutlet weak var lblDate: UIButton!
+    @IBOutlet weak var lblDate: UILabel!
 
     var card = dashboardCard()
     
@@ -31,7 +31,7 @@ class ShareDialogViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         // Do any additional setup after loading the view.
-        self.smallText.text = card.small_text!
+        self.smallText.text = card.scheme!
         
         let url = card.icon!
         self.icon.sd_setImage(with: url)
@@ -40,15 +40,15 @@ class ShareDialogViewController: UIViewController {
         let dataValue = intValue?.formattedWithSeparator
 
         print("Float value",intValue!)
-        if card.pre_data_unit == "Rs. " || card.pre_data_unit == "Rs "{
-            let txt = dataValue! + (" \(card.pre_data_unit!)")
-            self.DataValue.attributedText = Helpers().addAttributedString(normalString: txt, subString: card.pre_data_unit!)
+        if card.data_unit == " Kms"{
+            let txt = dataValue! + (" \(card.data_unit!)")
+            self.DataValue.attributedText = Helpers().addAttributedString(normalString: txt, subString: card.data_unit!)
         }
         else{
             let txt = card.pre_data_unit! + (" \(dataValue!)")
             self.DataValue.attributedText = Helpers().addAttributedString(normalString: txt, subString: card.pre_data_unit!)
         }
-
+        self.lblDate.text = card.date
        // self.DataValue.text = card.pre_data_unit! + (" \(card.data_value!)")
 
     }
@@ -63,11 +63,16 @@ class ShareDialogViewController: UIViewController {
     @IBAction func shareImageButton(_ sender: UIButton) {
         
         // image to share
-        //let image = UIImage(named: "Image")
+       
+        sender.isHidden = true
         
-        // set up activity view controller
-        //let imageToShare = [ image! ]
-        let activityViewController = UIActivityViewController(activityItems: [self.card.small_text! as Any], applicationActivities: nil)
+        let renderer = UIGraphicsImageRenderer(size: view.bounds.size)
+        let image = renderer.image { ctx in
+            view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+        }
+        sender.isHidden = false
+        let textToShare = Helpers.textToShare
+        let activityViewController = UIActivityViewController(activityItems: [textToShare,image], applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
         
         // exclude some activity types from the list (optional)

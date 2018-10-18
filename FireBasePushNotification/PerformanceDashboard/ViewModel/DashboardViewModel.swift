@@ -75,6 +75,7 @@ class DashboardViewModel: NSObject {
             cardDict.icon = url
             cardDict.data_value = (shuffuledArray[i] as! NSDictionary).value(forKey: "data_value") as? String
             cardDict.pre_data_unit = (shuffuledArray[i] as! NSDictionary).value(forKey: "pre_data_unit") as? String
+            cardDict.data_unit = (shuffuledArray[i] as! NSDictionary).value(forKey: "data_unit") as? String
             cardDict.small_text = (shuffuledArray[i] as! NSDictionary).value(forKey: "small_text") as? String
             cardDict.date = (shuffuledArray[i] as! NSDictionary).value(forKey: "date") as? String
             cardDict.web_link = (shuffuledArray[i] as! NSDictionary).value(forKey: "web_link") as? String

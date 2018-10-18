@@ -24,7 +24,7 @@ class Helpers: NSObject {
     static let NEWS_DETAIL_IDENTIFIER = "NewsDetailsViewController"
     static let storyBoard = UIStoryboard(name: "Main", bundle: nil)
     static let navigationController = storyBoard.instantiateViewController(withIdentifier: "Main") as! UINavigationController
-    
+    static let textToShare = "Check out the milestone achievements of Govt's flagship schemes https://transformingindia.mygov.in"
     
     func showAlertMessage(viewController: UIViewController, title: String, msg: String) {
         let alert = UIAlertController (title: "", message: msg, preferredStyle: UIAlertControllerStyle.alert)
@@ -38,8 +38,9 @@ class Helpers: NSObject {
         let strNumber: NSString = normalString as NSString
         let range = (strNumber).range(of: subString)
         let attribute = NSMutableAttributedString.init(string: strNumber as String)
-        attribute.addAttribute(.foregroundColor, value: UIColor.darkGray , range: range)
-        attribute.addAttribute(.font , value: UIFont(name: "DS-Digital-Bold", size: 15)! , range: range)
+        attribute.addAttribute(.foregroundColor, value: UIColor(red: CGFloat(111.0/255), green: CGFloat(216.0/255), blue: CGFloat(92.0/255), alpha: 1.0) , range: range)
+
+        attribute.addAttribute(.font , value: UIFont(name: "DS-Digital-Bold", size: 13)! , range: range)
         return attribute
     }
     

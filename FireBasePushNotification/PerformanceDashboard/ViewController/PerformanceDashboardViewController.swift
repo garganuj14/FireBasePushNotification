@@ -20,7 +20,7 @@ class PerformanceDashboardViewController: UIViewController {
     //Presentr decleration
     let presenter: Presentr = {
         let width = ModalSize.custom(size: 276.0)
-        let height = ModalSize.custom(size: 200.0)
+        let height = ModalSize.custom(size: 250)
         let center = ModalCenterPosition.center
         let customType = PresentationType.custom(width: width, height: height, center: center)
         

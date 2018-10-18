@@ -44,8 +44,8 @@ class CollectionViewCell: UICollectionViewCell {
     
     func setDashboardData(card:dashboardCard){
         // self.SchemeName.text = card.scheme
-        self.smallText.text = card.small_text
-        self.smallTextHover.text = card.small_text
+        self.smallText.text = card.scheme
+        self.smallTextHover.text = card.scheme
         
         let url = card.icon
         self.icon.sd_setImage(with: url)
@@ -56,9 +56,9 @@ class CollectionViewCell: UICollectionViewCell {
         
         let dataValue = intValue?.formattedWithSeparator
         //self.DataValue.countFrom(CGFloat(0), to: CGFloat(intValue!), withDuration: 1.5)
-        if card.pre_data_unit == "Rs. " || card.pre_data_unit == "Rs "{
-           let txt = dataValue! + (" \(card.pre_data_unit!)")
-           self.DataValue.attributedText = Helpers().addAttributedString(normalString: txt, subString: card.pre_data_unit!)
+        if card.data_unit == " Kms"{
+           let txt = dataValue! + (" \(card.data_unit!)")
+           self.DataValue.attributedText = Helpers().addAttributedString(normalString: txt, subString: card.data_unit!)
         }
         else{
             let txt = card.pre_data_unit! + (" \(dataValue!)")
